@@ -16,27 +16,22 @@ public class Application {
         OutputView outputView = OutputView.getInstance();
 
         String userInputCarNames = inputView.readCarNames();
+        RacingCars racingCars = createRacingCars(userInputCarNames);
         int attemptCount = inputView.readAttemptCount();
-
-        RacingCars racingCars = createRacingCars(userInputCarNames
-                .replace(" ","")
-                .split(","));
 
         while(attemptCount-- > 0) {
             racingCars.moveAll();
-            outputView.printDriveResult(racingCars.getRacingCars()
-                    .stream()
-                    .map(Car::nameAndPosition)
-                    .toList());
+            outputView.printDriveResult(racingCars);
         }
 
         Winners winners = Winners.of(racingCars.getRacingCars());
-        outputView.printWinners(winners.getWinners().stream()
-                .map(Car::getCarName)
-                .toList());
+        outputView.printWinners(winners);
     }
-    private static RacingCars createRacingCars(String[] splitCarNames) {
+    private static RacingCars createRacingCars(String userInputCarNames) {
         List<Car> generatedCars = new ArrayList<>();
+        String[] splitCarNames = userInputCarNames
+                .replace(" ","")
+                .split(",");
         for (String input : splitCarNames) {
             generatedCars.add(new CarBuilder()
                     .withCarName(CarName.of(input))
