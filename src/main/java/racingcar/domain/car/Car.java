@@ -13,6 +13,6 @@ public class Car {
     }
 
     public void moveForward() {
-        position.move(1);
+        position.move(driveStrategy.determineDistance());
     }
 }
