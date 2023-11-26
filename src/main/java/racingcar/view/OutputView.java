@@ -35,6 +35,6 @@ public class OutputView {
                 .toList();
         String result = winnersWithCarNames.stream()
                 .collect(Collectors.joining(", "));
-        System.out.println(String.format("최종우승자 : %s", result));
+        System.out.println(String.format("최종 우승자 : %s", result));
     }
 }
