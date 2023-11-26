@@ -3,9 +3,13 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.car.Car;
 
 class RacingCarsTest {
 
@@ -31,5 +35,19 @@ class RacingCarsTest {
     @ValueSource(strings = {"pobi, woni, lit", "우아한, 테크, 코스"})
     void properlyCreateRacingCars(String text) {
         assertDoesNotThrow(() -> RacingCars.of(text.replace(" ", "").split(DELIMITER)));
+    }
+
+    @Test
+    void printResult() {
+        RacingCars racingCars = RacingCars.of(new String[] {"pobi", "woni", "lit"});
+        racingCars.moveAll();
+        racingCars.moveAll();
+        racingCars.moveAll();
+        racingCars.moveAll();
+
+        List<Car> extracted = racingCars.getRacingCars();
+        for (Car car : extracted) {
+            System.out.println(car.nameAndPosition());
+        }
     }
 }

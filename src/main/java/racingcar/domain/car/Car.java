@@ -1,7 +1,11 @@
 package racingcar.domain.car;
 
+import java.util.Comparator;
+
 public class Car {
 
+    public static final Comparator<Car> COMPARATOR_BY_POSITION =
+            Comparator.comparing(car -> car.position);
     private final CarName carName;
     private final Position position;
     private final DriveStrategy driveStrategy;
@@ -14,5 +18,9 @@ public class Car {
 
     public void moveForward() {
         position.move(driveStrategy.determineDistance());
+    }
+
+    public String nameAndPosition() {
+        return carName.getName() + " : " + position.current();
     }
 }

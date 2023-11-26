@@ -30,10 +30,10 @@ public class RacingCars {
 
     private static void validate(String[] userInput) {
         if (hasDuplication(userInput)) {
-            throw new IllegalArgumentException("중복 ㄴㄴ. text:%s");
+            throw new IllegalArgumentException("중복 ㄴㄴ");
         }
         if (userInput.length < MIN_CAR_COUNT) {
-            throw new IllegalArgumentException("2대이상만. text:%s");
+            throw new IllegalArgumentException("2대이상만");
         }
     }
 
@@ -43,5 +43,9 @@ public class RacingCars {
 
     public void moveAll() {
         racingCars.forEach(Car::moveForward);
+    }
+
+    public List<Car> getRacingCars() {
+        return new ArrayList<>(racingCars);
     }
 }
