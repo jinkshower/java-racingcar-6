@@ -1,7 +1,8 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.function.IntSupplier;
+import racingcar.domain.car.DriveStrategy;
 
 public class RandomDriveStrategy implements DriveStrategy {
 
