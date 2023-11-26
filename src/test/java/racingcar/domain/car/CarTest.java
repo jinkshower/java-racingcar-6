@@ -11,7 +11,7 @@ class CarTest {
 
     @DisplayName("이름이 5자를 초과한 자동차 생성시 예외가 발생한다")
     @ParameterizedTest
-    @ValueSource(strings= {"ringri", "우아한테크코"})
+    @ValueSource(strings = {"ringri", "우아한테크코"})
     void throwExceptionForName(String name) {
         assertThatThrownBy(() -> new CarBuilder().withCarName(CarName.of(name)))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -19,7 +19,7 @@ class CarTest {
 
     @DisplayName("이름에 특수문자, 공백을 포함, 빈 문자열인 자동차 생성시 예외가 발생한다")
     @ParameterizedTest
-    @ValueSource(strings= {"%!l@it", "po bi", ""})
+    @ValueSource(strings = {"%!l@it", "po bi", ""})
     void throwExceptionForName2(String name) {
         assertThatThrownBy(() -> new CarBuilder().withCarName(CarName.of(name)))
                 .isInstanceOf(IllegalArgumentException.class);

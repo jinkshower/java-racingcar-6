@@ -19,7 +19,7 @@ public class Application {
         RacingCars racingCars = createRacingCars(userInputCarNames);
         int attemptCount = inputView.readAttemptCount();
 
-        while(attemptCount-- > 0) {
+        while (attemptCount-- > 0) {
             racingCars.moveAll();
             outputView.printDriveResult(racingCars);
         }
@@ -27,10 +27,11 @@ public class Application {
         Winners winners = Winners.of(racingCars.getRacingCars());
         outputView.printWinners(winners);
     }
+
     private static RacingCars createRacingCars(String userInputCarNames) {
         List<Car> generatedCars = new ArrayList<>();
         String[] splitCarNames = userInputCarNames
-                .replace(" ","")
+                .replace(" ", "")
                 .split(",");
         for (String input : splitCarNames) {
             generatedCars.add(new CarBuilder()

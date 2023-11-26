@@ -5,6 +5,8 @@ import java.util.Objects;
 public class Position implements Comparable<Position> {
 
     private static final int INITIAL_POSITION = 0;
+    private static final String DISTANCE_PLACEHOLDER = "-";
+
     private int position;
 
     public Position() {
@@ -16,7 +18,7 @@ public class Position implements Comparable<Position> {
     }
 
     public String current() {
-        return "-".repeat(position);
+        return DISTANCE_PLACEHOLDER.repeat(position);
     }
 
     @Override

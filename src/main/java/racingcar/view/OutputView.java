@@ -1,8 +1,6 @@
 package racingcar.view;
 
-import java.sql.SQLOutput;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.RacingCars;
 import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
@@ -23,7 +21,7 @@ public class OutputView {
                 .stream()
                 .map(Car::nameAndPosition)
                 .toList();
-        for (String string: result) {
+        for (String string : result) {
             System.out.println(string);
         }
         System.out.println();
@@ -33,8 +31,7 @@ public class OutputView {
         List<String> winnersWithCarNames = winners.getWinners().stream()
                 .map(Car::getCarName)
                 .toList();
-        String result = winnersWithCarNames.stream()
-                .collect(Collectors.joining(", "));
-        System.out.println(String.format("최종 우승자 : %s", result));
+        String result = String.join(", ", winnersWithCarNames);
+        System.out.printf("최종 우승자 : %s%n", result);
     }
 }

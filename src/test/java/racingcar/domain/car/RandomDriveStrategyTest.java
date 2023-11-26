@@ -7,8 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.car.DriveStrategy;
-import racingcar.domain.car.RandomDriveStrategy;
 
 class RandomDriveStrategyTest {
 
@@ -16,9 +14,9 @@ class RandomDriveStrategyTest {
     @ParameterizedTest
     @CsvSource(value = {"4,1", "8,1"})
     void determineDistance1(int value, int expected) {
-        DriveStrategy randomDriveStrategy = new RandomDriveStrategy(() ->value);
+        DriveStrategy randomDriveStrategy = new RandomDriveStrategy(() -> value);
 
-        int actual= randomDriveStrategy.determineDistance();
+        int actual = randomDriveStrategy.determineDistance();
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -27,9 +25,9 @@ class RandomDriveStrategyTest {
     @ParameterizedTest
     @CsvSource(value = {"1,0", "3,0"})
     void determineDistance2(int value, int expected) {
-        DriveStrategy randomDriveStrategy = new RandomDriveStrategy(() ->value);
+        DriveStrategy randomDriveStrategy = new RandomDriveStrategy(() -> value);
 
-        int actual= randomDriveStrategy.determineDistance();
+        int actual = randomDriveStrategy.determineDistance();
 
         assertThat(actual).isEqualTo(expected);
     }
