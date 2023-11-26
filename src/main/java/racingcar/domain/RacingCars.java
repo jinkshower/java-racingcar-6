@@ -35,16 +35,4 @@ public class RacingCars {
     public List<Car> getRacingCars() {
         return new ArrayList<>(racingCars);
     }
-
-    //    public static RacingCars of(String[] splitInput) {
-//        validate(splitInput);
-//
-//        List<Car> generatedCars = new ArrayList<>();
-//        for (String input : splitInput) {
-//            generatedCars.add(new CarBuilder()
-//                    .withCarName(CarName.of(input))
-//                    .build());
-//        }
-//        return new RacingCars(generatedCars);
-//    }
 }
